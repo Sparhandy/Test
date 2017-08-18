@@ -6,5 +6,12 @@
             <directory>./test/Unit</directory>
         </testsuite>
     </testsuites>
-
+    <filter>
+        <whitelist>
+            <directory>./</directory>
+            <exclude>
+                <directory>./Tests</directory>
+            </exclude>
+        </whitelist>
+    </filter>
 </phpunit>
