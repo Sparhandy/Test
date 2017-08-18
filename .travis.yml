@@ -20,6 +20,7 @@ install: travis_retry composer update
 
 script:
   - ./vendor/bin/phpmd ./src text ./configuration/phpmd/phpmd.xml --suffixes php
+  - ./vendor/bin/phpcs --extensions=php --standard=./configuration/phpcs/Production/ruleset.xml ./src ./test ./configuration/phpcs/Production/
   - phpunit --configuration phpunit.xml --coverage-text
 
 # configure notifications (email, IRC, campfire etc)

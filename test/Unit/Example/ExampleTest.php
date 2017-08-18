@@ -16,6 +16,11 @@ class ExampleTest extends PHPUnit_Framework_TestCase
     /** @var Example */
     private $subject = null;
 
+    /**
+     * Sets up tests.
+     *
+     * @return void
+     */
     protected function setUp()
     {
         $this->subject = new Example();
@@ -24,16 +29,21 @@ class ExampleTest extends PHPUnit_Framework_TestCase
     /**
     * @test
     */
-    public function testMe_with_parameter_returns_concatenation()
+    public function greetMe_with_parameter_returns_concatenation()
     {
         $mockedTestParameter = 'World';
-        $expectedResult = 'Hello ' . $mockedTestParameter;
+        $expectedResult      = 'Hello ' . $mockedTestParameter;
 
-        $result = $this->subject->testMe($mockedTestParameter);
+        $result = $this->subject->greetMe($mockedTestParameter);
 
         self::assertSame($expectedResult, $result);
     }
 
+    /**
+     * Tears down test.
+     *
+     * @return void
+     */
     protected function tearDown()
     {
         Mockery::close();

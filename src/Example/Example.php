@@ -1,8 +1,18 @@
 <?php
+
 namespace Sparhandy\Test\Example;
 
-class Example {
-    public function testMe($testParam) {
-        return 'Hallo ' . $testParam;
+class Example
+{
+    /**
+     * This Method is just an example.
+     *
+     * @param string $testParam
+     *
+     * @return string
+     */
+    public function greetMe($testParam)
+    {
+        return 'Hello ' . $testParam;
     }
 }
