@@ -1,0 +1,21 @@
+{
+    "name": "sparhandy/test",
+    "description": "Example project",
+    "type": "test",
+    "require-dev": {
+        "phpunit/phpunit": "^4.8",
+        "mockery/mockery": "^0.9.9"
+    },
+    "authors": [
+        {
+            "name": "Sebastian Knott",
+            "email": "sebastian.knott@sh.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sparhandy\\Test\\": "src/",
+            "Sparhandy\\Test\\Tests\\": "test/"
+        }
+    }
+}
