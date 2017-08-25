@@ -7,20 +7,24 @@ php:
   - 5.5
   - 5.6
   - 7.0
+  - 7.1
 
 # optionally set up exclutions and allowed failures in the matrix
 matrix:
   allow_failures:
     - php: 7.0
+    - php: 7.1
 
-before_script:
-  - composer self-update
+before_install: 
+  - travis_retry composer self-update
 
-install: travis_retry composer update
+install:
+  - travis_retry composer config -g github-oauth.github.com $GH_TOKEN
+  - travis_retry composer update --prefer-dist
 
 script:
-  - ./vendor/bin/phpmd ./src text ./configuration/phpmd/phpmd.xml --suffixes php
-  - ./vendor/bin/phpcs --extensions=php --standard=./configuration/phpcs/Production/ruleset.xml ./src ./test ./configuration/phpcs/Production/
+  - ./vendor/bin/phpmd ./src text ./vendor/sparhandy/codingstandard/src/phpmd/phpmd.xml --suffixes php
+  - ./vendor/bin/phpcs --extensions=php --standard=./vendor/sparhandy/codingstandard/src/phpcs/Production/ruleset.xml ./src ./test
   - ./vendor/bin/phpunit --configuration ./configuration/phpunit/phpunit.xml --coverage-text
 
 # configure notifications (email, IRC, campfire etc)
