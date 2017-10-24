@@ -24,7 +24,7 @@ install:
 
 script:
   - ./vendor/bin/phpmd ./src text ./vendor/sparhandy/codingstandard/src/phpmd/phpmd.xml --suffixes php
-  - ./vendor/bin/phpcs --extensions=php --standard=./vendor/sparhandy/codingstandard/src/phpcs/Production/ruleset.xml ./src ./test
+  - ./vendor/bin/phpcs --extensions=php --standard=Production ./src ./test
   - ./vendor/bin/phpunit --configuration ./configuration/phpunit/phpunit.xml --coverage-text
 
 # configure notifications (email, IRC, campfire etc)
